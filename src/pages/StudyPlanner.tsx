@@ -148,38 +148,38 @@ export const StudyPlanner: React.FC = () => {
           </h3>
 
           <div className="space-y-3 text-xs">
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
               <div>
                 <strong className="block text-slate-800 dark:text-slate-200">
                   {isHindi ? 'सत्र 1: अवधारणा एवं कोर थ्योरी' : 'Session 1: Concept & Core Theory'}
                 </strong>
                 <span className="text-slate-500">Official BOS Study Material readings & statutory text</span>
               </div>
-              <span className="font-mono font-bold text-blue-600">
+              <span className="font-mono font-bold text-blue-600 shrink-0 self-start sm:self-auto">
                 {Math.round(dailyHours * 0.45 * 10) / 10} hrs
               </span>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
               <div>
                 <strong className="block text-slate-800 dark:text-slate-200">
                   {isHindi ? 'सत्र 2: संख्यात्मक एवं प्रश्न अभ्यास' : 'Session 2: Problem Solving & PYQ Drills'}
                 </strong>
                 <span className="text-slate-500">Practice Hub questions, illustrations, and problem sets</span>
               </div>
-              <span className="font-mono font-bold text-indigo-600">
+              <span className="font-mono font-bold text-indigo-600 shrink-0 self-start sm:self-auto">
                 {Math.round(dailyHours * 0.35 * 10) / 10} hrs
               </span>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
               <div>
                 <strong className="block text-slate-800 dark:text-slate-200">
                   {isHindi ? 'सत्र 3: फ्लैशकार्ड पुनरीक्षण एवं त्रुटि समीक्षा' : 'Session 3: Flashcards & Error Notebook'}
                 </strong>
                 <span className="text-slate-500">Daily spaced repetition flashcards & reviewing error logs</span>
               </div>
-              <span className="font-mono font-bold text-emerald-600">
+              <span className="font-mono font-bold text-emerald-600 shrink-0 self-start sm:self-auto">
                 {Math.round(dailyHours * 0.20 * 10) / 10} hrs
               </span>
             </div>
@@ -195,25 +195,25 @@ export const StudyPlanner: React.FC = () => {
 
           <div className="space-y-3 text-xs">
             <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-1">
-              <div className="flex items-center justify-between font-bold">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-bold">
                 <span className="text-slate-800 dark:text-slate-200">Phase 1: Comprehensive Syllabus Coverage</span>
-                <span className="text-blue-600 font-mono">Days 1 – {Math.round(daysLeft * 0.6)}</span>
+                <span className="text-blue-600 font-mono text-[11px] sm:text-xs">Days 1 – {Math.round(daysLeft * 0.6)}</span>
               </div>
               <p className="text-slate-500">Complete all chapters, illustrations, and primary institute modules.</p>
             </div>
 
             <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-1">
-              <div className="flex items-center justify-between font-bold">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-bold">
                 <span className="text-slate-800 dark:text-slate-200">Phase 2: First Consolidated Revision + Sectional Tests</span>
-                <span className="text-indigo-600 font-mono">Days {Math.round(daysLeft * 0.6) + 1} – {Math.round(daysLeft * 0.85)}</span>
+                <span className="text-indigo-600 font-mono text-[11px] sm:text-xs">Days {Math.round(daysLeft * 0.6) + 1} – {Math.round(daysLeft * 0.85)}</span>
               </div>
               <p className="text-slate-500">High-yield summary notes, formula revision, and past 5 years PYQs.</p>
             </div>
 
             <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 space-y-1 text-amber-900 dark:text-amber-200">
-              <div className="flex items-center justify-between font-bold">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-bold">
                 <span>Phase 3: Full Exam Condition Mocks & Error Elimination</span>
-                <span className="font-mono text-amber-800 dark:text-amber-300">Final {daysLeft - Math.round(daysLeft * 0.85)} Days</span>
+                <span className="font-mono text-amber-800 dark:text-amber-300 text-[11px] sm:text-xs">Final {daysLeft - Math.round(daysLeft * 0.85)} Days</span>
               </div>
               <p className="text-slate-600 dark:text-slate-300">Minimum 3 to 5 full length timed mock exams with strict negative marking.</p>
             </div>

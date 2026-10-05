@@ -201,8 +201,8 @@ function MainAppContent() {
       />
 
       {/* Main Content Layout with Desktop Sidebar */}
-      <div className="flex-1 flex max-w-7xl w-full mx-auto">
-        {/* Desktop Sidebar */}
+      <div className="flex-1 flex w-full">
+        {/* Desktop Sidebar & Mobile Drawer */}
         <Sidebar
           currentView={currentView}
           selectedCertId={selectedCertId}
@@ -211,15 +211,16 @@ function MainAppContent() {
           onClose={() => setIsSidebarOpen(false)}
         />
 
-        {/* Content Container (padded left on lg to accommodate 18rem sidebar) */}
-        <main className="flex-1 min-w-0 lg:pl-72 flex flex-col">
-          {/* Reactive Clickable Breadcrumbs on Every Page */}
-          {breadcrumbs.length > 0 && (
-            <Breadcrumbs items={breadcrumbs} onNavigate={handleNavigate} />
-          )}
+        {/* Content Container (padded bottom on mobile to accommodate MobileNav) */}
+        <main className="flex-1 min-w-0 flex flex-col pb-20 lg:pb-0">
+          <div className="max-w-7xl w-full mx-auto flex-1 flex flex-col">
+            {/* Reactive Clickable Breadcrumbs on Every Page */}
+            {breadcrumbs.length > 0 && (
+              <Breadcrumbs items={breadcrumbs} onNavigate={handleNavigate} />
+            )}
 
-          {/* Active View Router */}
-          <div className="p-3 sm:p-6 lg:p-8 flex-1">
+            {/* Active View Router */}
+            <div className="p-3 sm:p-5 lg:p-8 flex-1">
             {currentView === 'dashboard' && (
               <Dashboard
                 onNavigate={handleNavigate}
@@ -307,8 +308,9 @@ function MainAppContent() {
               <MyProfile />
             )}
           </div>
+        </div>
 
-          {/* Footer */}
+        {/* Footer */}
           <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 px-4 sm:px-8 text-xs text-slate-500 space-y-4">
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2">

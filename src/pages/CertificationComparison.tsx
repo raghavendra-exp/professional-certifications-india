@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bookmark, Check, X, Building2, Scale, ExternalLink } from 'lucide-react';
+import { Bookmark, Check, X, Building2, Scale, ExternalLink, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { certificationsData } from '../data/certifications';
 
@@ -67,6 +67,11 @@ export const CertificationComparison: React.FC = () => {
 
       {/* Comparison Table */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs">
+        {/* Mobile Horizontal Scroll Hint */}
+        <div className="sm:hidden px-4 py-2.5 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-medium flex items-center justify-between border-b border-blue-100 dark:border-blue-900/40">
+          <span>{isHindi ? 'सभी प्रमाणपत्र देखने हेतु दाईं ओर स्क्रॉल करें →' : 'Scroll right to view all certifications →'}</span>
+          <ArrowRight className="w-3.5 h-3.5 animate-pulse shrink-0" />
+        </div>
         <div className="overflow-x-auto scrollbar-thin">
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>

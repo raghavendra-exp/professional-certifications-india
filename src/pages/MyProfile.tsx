@@ -190,11 +190,11 @@ export const MyProfile: React.FC = () => {
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="border-b border-slate-200 dark:border-slate-800 text-[11px] font-bold text-slate-400 uppercase">
-                  <th className="py-2.5">Date</th>
-                  <th className="py-2.5">Test Title</th>
-                  <th className="py-2.5">Score</th>
-                  <th className="py-2.5">Accuracy</th>
-                  <th className="py-2.5">Time</th>
+                  <th className="py-2.5 min-w-[80px]">Date</th>
+                  <th className="py-2.5 min-w-[160px]">Test Title</th>
+                  <th className="py-2.5 min-w-[80px]">Score</th>
+                  <th className="py-2.5 min-w-[70px]">Accuracy</th>
+                  <th className="py-2.5 min-w-[70px]">Time</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">

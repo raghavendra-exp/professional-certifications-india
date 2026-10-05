@@ -266,10 +266,10 @@ export const MockTestHub: React.FC<MockTestHubProps> = ({ initialCertId, onNavig
     return (
       <div className="space-y-4 pb-20">
         {/* Top Control Bar with Timer & Status */}
-        <div className="sticky top-16 z-30 flex items-center justify-between p-3.5 sm:p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
-          <div className="flex items-center gap-3">
-            <span className="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">
-              {isHindi ? 'प्रश्न' : 'Question'} {currentIndex + 1} / {testQuestions.length}
+        <div className="sticky top-16 z-30 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 p-2.5 sm:p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100 whitespace-nowrap">
+              {isHindi ? 'प्रश्न' : 'Q'} {currentIndex + 1} / {testQuestions.length}
             </span>
             <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 uppercase">
               {currentQ.sourceType}
@@ -277,8 +277,8 @@ export const MockTestHub: React.FC<MockTestHubProps> = ({ initialCertId, onNavig
           </div>
 
           {/* Countdown Clock */}
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-mono text-sm sm:text-base font-bold shadow-xs">
-            <Clock className="w-4 h-4 text-amber-400 animate-pulse" />
+          <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-mono text-xs sm:text-base font-bold shadow-xs">
+            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 animate-pulse" />
             <span>{formatTimer(timeRemaining)}</span>
           </div>
 
@@ -289,9 +289,9 @@ export const MockTestHub: React.FC<MockTestHubProps> = ({ initialCertId, onNavig
                 handleSubmit();
               }
             }}
-            className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-xs transition-colors"
+            className="px-3 sm:px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-xs transition-colors shrink-0"
           >
-            {isHindi ? 'सबमिट करें' : 'Submit Exam'}
+            {isHindi ? 'सबमिट' : 'Submit'}
           </button>
         </div>
 
@@ -342,24 +342,24 @@ export const MockTestHub: React.FC<MockTestHubProps> = ({ initialCertId, onNavig
             </div>
 
             {/* Bottom Actions */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleToggleReview}
-                  className={`px-3 py-1.5 rounded-xl border text-xs font-semibold transition-colors ${
+                  className={`flex-1 sm:flex-initial px-3 py-1.5 rounded-xl border text-xs font-semibold transition-colors ${
                     isReviewed
                       ? 'border-purple-500 bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300'
                       : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300'
                   }`}
                 >
-                  {isReviewed ? (isHindi ? 'समीक्षा चिह्न हटाएं' : 'Unmark Review') : (isHindi ? 'समीक्षा हेतु चिह्नित करें' : 'Mark for Review')}
+                  {isReviewed ? (isHindi ? 'समीक्षा चिह्न हटाएं' : 'Unmark Review') : (isHindi ? 'समीक्षा चिह्नित करें' : 'Mark for Review')}
                 </button>
                 <button
                   onClick={handleClearAnswer}
                   disabled={!isAnswered}
                   className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs font-semibold hover:bg-slate-100 disabled:opacity-40"
                 >
-                  {isHindi ? 'उत्तर हटाएं' : 'Clear Response'}
+                  {isHindi ? 'हटाएं' : 'Clear'}
                 </button>
               </div>
 
@@ -367,7 +367,7 @@ export const MockTestHub: React.FC<MockTestHubProps> = ({ initialCertId, onNavig
                 <button
                   onClick={() => currentIndex > 0 && handleNavigateQuestion(currentIndex - 1)}
                   disabled={currentIndex === 0}
-                  className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1 disabled:opacity-40"
+                  className="flex-1 sm:flex-initial justify-center px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1 disabled:opacity-40"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   <span>{isHindi ? 'पिछला' : 'Previous'}</span>
@@ -375,7 +375,7 @@ export const MockTestHub: React.FC<MockTestHubProps> = ({ initialCertId, onNavig
                 <button
                   onClick={() => currentIndex < testQuestions.length - 1 && handleNavigateQuestion(currentIndex + 1)}
                   disabled={currentIndex === testQuestions.length - 1}
-                  className="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl flex items-center gap-1 disabled:opacity-40"
+                  className="flex-1 sm:flex-initial justify-center px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl flex items-center gap-1 disabled:opacity-40"
                 >
                   <span>{isHindi ? 'अगला' : 'Next'}</span>
                   <ChevronRight className="w-4 h-4" />

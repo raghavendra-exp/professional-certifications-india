@@ -74,7 +74,7 @@ export const CareerPathExplorer: React.FC = () => {
                 </h3>
               </div>
 
-              <div className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
+              <div className="self-start sm:self-auto text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
                 Indicative: {stage.indicativeSalaryRange}
               </div>
             </div>

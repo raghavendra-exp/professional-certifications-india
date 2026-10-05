@@ -246,9 +246,9 @@ export const WhichCertificationWizard: React.FC<WhichCertificationWizardProps> =
       {/* STEP 3: Tailored Recommendations */}
       {step === 3 && (
         <div className="space-y-6">
-          <div className="flex items-center justify-between bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 p-4 rounded-2xl">
-            <div className="flex items-center gap-2 text-xs text-emerald-900 dark:text-emerald-200">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 p-4 rounded-2xl">
+            <div className="flex items-start sm:items-center gap-2 text-xs text-emerald-900 dark:text-emerald-200">
+              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5 sm:mt-0" />
               <span>
                 {isHindi
                   ? 'आपकी पृष्ठभूमि एवं लक्ष्यों के आधार पर शीर्ष 3 अनुशंसित प्रमाणपत्र तैयार हैं:'
@@ -257,7 +257,7 @@ export const WhichCertificationWizard: React.FC<WhichCertificationWizardProps> =
             </div>
             <button
               onClick={() => setStep(1)}
-              className="text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:underline flex items-center gap-1"
+              className="text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:underline flex items-center gap-1 self-start sm:self-auto shrink-0"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>{isHindi ? 'पुनः प्रारंभ करें' : 'Reset'}</span>
@@ -315,13 +315,13 @@ export const WhichCertificationWizard: React.FC<WhichCertificationWizardProps> =
                   {cert.tagline}
                 </p>
 
-                <div className="flex items-center justify-between pt-2 text-xs">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 text-xs">
                   <span className="text-[11px] text-slate-400">
                     *Note: Certifications do not guarantee employment; they certify verified statutory competency.
                   </span>
                   <button
                     onClick={() => onNavigate('certification_detail', cert.id)}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center gap-1 shadow-xs"
+                    className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-1 shadow-xs shrink-0"
                   >
                     <span>{isHindi ? 'पूर्ण विवरण एवं पाठ्यक्रम' : 'View Full Roadmap'}</span>
                     <ChevronRight className="w-3.5 h-3.5" />

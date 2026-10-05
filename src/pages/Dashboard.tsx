@@ -92,10 +92,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onOpenSearch }
           </p>
 
           {/* Quick Hero Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
             <button
               onClick={() => onNavigate('practice_hub')}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all hover:scale-102"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all hover:scale-102"
             >
               <HelpCircle className="w-4 h-4" />
               <span>{isHindi ? '1,000+ अभ्यास प्रश्न शुरू करें' : 'Start 1,000+ Question Practice'}</span>
@@ -104,7 +104,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onOpenSearch }
 
             <button
               onClick={() => onNavigate('mock_test_hub')}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 text-white text-sm font-bold border border-slate-700 hover:border-slate-600 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 text-white text-sm font-bold border border-slate-700 hover:border-slate-600 transition-all"
             >
               <Clock className="w-4 h-4 text-amber-400" />
               <span>{isHindi ? 'लाइव मॉक टेस्ट' : 'Full Official Mock Tests'}</span>
@@ -112,7 +112,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onOpenSearch }
 
             <button
               onClick={() => onNavigate('which_certification')}
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-indigo-950/60 hover:bg-indigo-900/60 text-indigo-200 text-sm font-semibold border border-indigo-700/50 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-indigo-950/60 hover:bg-indigo-900/60 text-indigo-200 text-sm font-semibold border border-indigo-700/50 transition-all"
             >
               <Compass className="w-4 h-4 text-indigo-400" />
               <span>{isHindi ? 'मुझे कौन सा एग्जाम देना चाहिए?' : 'Which Certification Should I Take?'}</span>
@@ -152,7 +152,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onOpenSearch }
             {isHindi ? 'नवीनतम वैधानिक अपडेट:' : 'Latest Regulatory Updates:'}
           </span>
         </div>
-        <div className="flex-1 text-xs text-slate-700 dark:text-slate-300 truncate">
+        <div className="min-w-0 flex-1 text-xs text-slate-700 dark:text-slate-300 truncate">
           <span className="font-semibold text-slate-900 dark:text-slate-100">
             {regulatoryAndCurrentAffairsData[0].title}
           </span>

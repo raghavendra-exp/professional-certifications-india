@@ -56,26 +56,26 @@ export const CertificationDetail: React.FC<CertificationDetailProps> = ({
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-3 sm:gap-4">
             <span
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white shrink-0 shadow-lg"
+              className="w-12 h-12 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl flex items-center justify-center text-base sm:text-2xl font-black text-white shrink-0 shadow-lg"
               style={{ backgroundColor: cert.badgeColor }}
             >
               {cert.acronym}
             </span>
-            <div className="space-y-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30">
+            <div className="space-y-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30">
                   {cert.categoryLabel}
                 </span>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                <span className="text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
                   Est. {cert.establishedYear} • {cert.country}
                 </span>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                <span className="text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
                   {cert.currentSchemeYear}
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
+              <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
                 {isHindi ? cert.hindiName : cert.name}
               </h1>
               <p className="text-xs sm:text-sm text-slate-300 flex items-center gap-1.5 font-medium">
@@ -86,17 +86,17 @@ export const CertificationDetail: React.FC<CertificationDetailProps> = ({
           </div>
 
           {/* Quick Action Hub for Practice & Mocks */}
-          <div className="flex sm:flex-col gap-2 shrink-0">
+          <div className="flex flex-col sm:flex-col gap-2 w-full sm:w-auto shrink-0">
             <button
               onClick={() => onNavigate('practice_hub', cert.id)}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-600/30 transition-all hover:scale-102"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-600/30 transition-all hover:scale-102"
             >
               <HelpCircle className="w-4 h-4" />
               <span>{isHindi ? 'अभ्यास शुरू करें' : 'Start Practice'}</span>
             </button>
             <button
               onClick={() => onNavigate('mock_test_hub', cert.id)}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs sm:text-sm font-bold border border-slate-700 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs sm:text-sm font-bold border border-slate-700 transition-all"
             >
               <Clock className="w-4 h-4 text-amber-400" />
               <span>{isHindi ? 'मॉक टेस्ट लें' : 'Official Mock Test'}</span>
@@ -314,7 +314,7 @@ export const CertificationDetail: React.FC<CertificationDetailProps> = ({
 
                     {/* Domains & Topics */}
                     {paper.domains && paper.domains.length > 0 && (
-                      <div className="pl-11 pt-2 space-y-2">
+                      <div className="pl-3 sm:pl-11 pt-2 space-y-2">
                         {paper.domains.map(dom => (
                           <div key={dom.id} className="text-xs p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                             <p className="font-bold text-slate-800 dark:text-slate-200">
@@ -322,10 +322,10 @@ export const CertificationDetail: React.FC<CertificationDetailProps> = ({
                             </p>
                             <div className="mt-1.5 space-y-1">
                               {dom.topics.map(tItem => (
-                                <div key={tItem.id} className="text-slate-600 dark:text-slate-400 flex items-start gap-1.5">
-                                  <span className="text-blue-500 font-bold">•</span>
-                                  <span>{tItem.name}:</span>
-                                  <span className="text-slate-500 font-mono">[{tItem.keyConcepts.join(', ')}]</span>
+                                <div key={tItem.id} className="text-slate-600 dark:text-slate-400 flex flex-wrap items-start gap-1.5">
+                                  <span className="text-blue-500 font-bold shrink-0">•</span>
+                                  <span className="font-medium">{tItem.name}:</span>
+                                  <span className="text-slate-500 font-mono break-all sm:break-words">[{tItem.keyConcepts.join(', ')}]</span>
                                 </div>
                               ))}
                             </div>

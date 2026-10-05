@@ -43,12 +43,12 @@ export const BooksLibrary: React.FC = () => {
 
         {/* Filter & Search Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-slate-500">{isHindi ? 'प्रमाणपत्र' : 'Exam'}:</span>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <span className="text-xs font-bold text-slate-500 shrink-0">{isHindi ? 'प्रमाणपत्र' : 'Exam'}:</span>
             <select
               value={selectedCert}
               onChange={e => setSelectedCert(e.target.value)}
-              className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 font-semibold"
+              className="w-full sm:w-auto px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 font-semibold"
             >
               <option value="ALL">{isHindi ? 'सभी परीक्षाएं' : 'All Certifications'}</option>
               {certificationsData.map(c => (
@@ -59,7 +59,7 @@ export const BooksLibrary: React.FC = () => {
             </select>
           </div>
 
-          <div className="relative max-w-xs w-full">
+          <div className="relative w-full sm:max-w-xs">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
@@ -113,12 +113,12 @@ export const BooksLibrary: React.FC = () => {
             </div>
 
             {/* Official / Publisher Links */}
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold">
+            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs font-semibold">
               <a
                 href={book.officialLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 shrink-0"
               >
                 <span>{isHindi ? 'आधिकारिक संस्थान पोर्टल' : 'Official Portal'}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -129,7 +129,7 @@ export const BooksLibrary: React.FC = () => {
                   href={book.purchaseLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1"
+                  className="text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1 shrink-0"
                 >
                   <span>{isHindi ? 'अधिकृत क्रय लिंक' : 'Official Bookstore'}</span>
                   <ExternalLink className="w-3.5 h-3.5" />

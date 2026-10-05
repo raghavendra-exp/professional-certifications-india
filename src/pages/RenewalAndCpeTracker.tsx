@@ -232,12 +232,12 @@ export const RenewalAndCpeTracker: React.FC = () => {
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-[11px] font-bold text-slate-400 uppercase">
-                <th className="p-4">Credential</th>
-                <th className="p-4">Activity Title</th>
-                <th className="p-4">Provider</th>
-                <th className="p-4">Date</th>
-                <th className="p-4 text-center">Hours</th>
-                <th className="p-4 text-right">Action</th>
+                <th className="p-4 min-w-[100px]">Credential</th>
+                <th className="p-4 min-w-[200px]">Activity Title</th>
+                <th className="p-4 min-w-[140px]">Provider</th>
+                <th className="p-4 min-w-[100px]">Date</th>
+                <th className="p-4 text-center min-w-[80px]">Hours</th>
+                <th className="p-4 text-right min-w-[70px]">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">

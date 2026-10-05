@@ -117,55 +117,62 @@ export const PracticeHub: React.FC<PracticeHubProps> = ({ initialCertId, onNavig
       </div>
 
       {/* Filters Strip */}
-      <div className="flex flex-wrap items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs">
-        <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
-          <Filter className="w-3.5 h-3.5 text-blue-600" />
-          <span>{isHindi ? 'फ़िल्टर' : 'Filters'}:</span>
+      <div className="flex flex-col sm:flex-row flex-wrap sm:items-center gap-2.5 sm:gap-3 p-3.5 sm:p-4 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs">
+        <div className="flex items-center justify-between w-full sm:w-auto font-bold text-slate-700 dark:text-slate-300">
+          <div className="flex items-center gap-1.5">
+            <Filter className="w-3.5 h-3.5 text-blue-600" />
+            <span>{isHindi ? 'फ़िल्टर' : 'Filters'}:</span>
+          </div>
+          <span className="sm:hidden font-mono font-bold text-slate-500 dark:text-slate-400">
+            {filteredQuestions.length} {isHindi ? 'प्रश्न' : 'Qs'}
+          </span>
         </div>
 
-        {/* Certification Filter */}
-        <select
-          value={selectedCert}
-          onChange={e => {
-            setSelectedCert(e.target.value);
-            setCurrentIndex(0);
-          }}
-          className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium outline-hidden"
-        >
-          <option value="ALL">{isHindi ? 'सभी प्रमाणपत्र' : 'All Certifications'}</option>
-          {certificationsData.map(c => (
-            <option key={c.id} value={c.id}>
-              {c.acronym} — {c.name}
-            </option>
-          ))}
-        </select>
+        <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2.5 w-full sm:w-auto flex-1">
+          {/* Certification Filter */}
+          <select
+            value={selectedCert}
+            onChange={e => {
+              setSelectedCert(e.target.value);
+              setCurrentIndex(0);
+            }}
+            className="w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium outline-hidden"
+          >
+            <option value="ALL">{isHindi ? 'सभी प्रमाणपत्र' : 'All Certifications'}</option>
+            {certificationsData.map(c => (
+              <option key={c.id} value={c.id}>
+                {c.acronym} — {c.name}
+              </option>
+            ))}
+          </select>
 
-        {/* Difficulty Filter */}
-        <select
-          value={selectedDifficulty}
-          onChange={e => setSelectedDifficulty(e.target.value)}
-          className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium outline-hidden"
-        >
-          <option value="ALL">{isHindi ? 'सभी कठिनाई स्तर' : 'All Difficulties'}</option>
-          <option value="Easy">Easy</option>
-          <option value="Medium">Medium</option>
-          <option value="Hard">Hard / Case Scenario</option>
-        </select>
+          {/* Difficulty Filter */}
+          <select
+            value={selectedDifficulty}
+            onChange={e => setSelectedDifficulty(e.target.value)}
+            className="w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium outline-hidden"
+          >
+            <option value="ALL">{isHindi ? 'सभी कठिनाई स्तर' : 'All Difficulties'}</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard / Case Scenario</option>
+          </select>
 
-        {/* Source Type Filter */}
-        <select
-          value={selectedSourceType}
-          onChange={e => setSelectedSourceType(e.target.value)}
-          className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium outline-hidden"
-        >
-          <option value="ALL">{isHindi ? 'सभी प्रश्न स्रोत' : 'All Question Sources'}</option>
-          <option value="VERIFIED PYQ">VERIFIED PYQ</option>
-          <option value="OFFICIAL SAMPLE QUESTION">OFFICIAL SAMPLE QUESTION</option>
-          <option value="ORIGINAL PRACTICE">ORIGINAL PRACTICE</option>
-          <option value="PYQ-STYLE">PYQ-STYLE</option>
-        </select>
+          {/* Source Type Filter */}
+          <select
+            value={selectedSourceType}
+            onChange={e => setSelectedSourceType(e.target.value)}
+            className="w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium outline-hidden"
+          >
+            <option value="ALL">{isHindi ? 'सभी प्रश्न स्रोत' : 'All Question Sources'}</option>
+            <option value="VERIFIED PYQ">VERIFIED PYQ</option>
+            <option value="OFFICIAL SAMPLE QUESTION">OFFICIAL SAMPLE QUESTION</option>
+            <option value="ORIGINAL PRACTICE">ORIGINAL PRACTICE</option>
+            <option value="PYQ-STYLE">PYQ-STYLE</option>
+          </select>
+        </div>
 
-        <span className="ml-auto font-mono font-bold text-slate-500 dark:text-slate-400">
+        <span className="hidden sm:inline-block ml-auto font-mono font-bold text-slate-500 dark:text-slate-400 shrink-0">
           {filteredQuestions.length} {isHindi ? 'प्रश्न उपलब्ध' : 'Questions Matched'}
         </span>
       </div>

@@ -132,7 +132,7 @@ export const CaseStudyLab: React.FC<CaseStudyLabProps> = ({ onNavigate }) => {
               <Scale className="w-4 h-4 text-purple-600" />
               <span>{isHindi ? 'लागू कानून एवं मानक' : 'Applicable Standards & Laws'}</span>
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-300 bg-purple-50 dark:bg-purple-950/30 p-3 rounded-xl border border-purple-200 dark:border-purple-900/40 font-mono">
+            <p className="text-xs text-slate-600 dark:text-slate-300 bg-purple-50 dark:bg-purple-950/30 p-3 rounded-xl border border-purple-200 dark:border-purple-900/40 font-mono break-words">
               {activeCase.applicableRuleOrStandard}
             </p>
           </div>

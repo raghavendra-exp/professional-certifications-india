@@ -42,13 +42,13 @@ export const SyllabusEngine: React.FC<SyllabusEngineProps> = ({ initialCertId, o
         </p>
 
         {/* Certification & Version Selectors */}
-        <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-500">{isHindi ? 'प्रमाणपत्र' : 'Certification'}:</span>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <span className="font-bold text-slate-500 shrink-0">{isHindi ? 'प्रमाणपत्र' : 'Certification'}:</span>
             <select
               value={selectedCertId}
               onChange={e => setSelectedCertId(e.target.value)}
-              className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-semibold text-slate-800 dark:text-slate-200"
+              className="w-full sm:w-auto px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-semibold text-slate-800 dark:text-slate-200"
             >
               {certificationsData.map(c => (
                 <option key={c.id} value={c.id}>
@@ -58,12 +58,12 @@ export const SyllabusEngine: React.FC<SyllabusEngineProps> = ({ initialCertId, o
             </select>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-500">{isHindi ? 'संस्करण फ़ाइल' : 'Syllabus Version'}:</span>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <span className="font-bold text-slate-500 shrink-0">{isHindi ? 'संस्करण फ़ाइल' : 'Syllabus Version'}:</span>
             <select
               value={selectedVersion}
               onChange={e => setSelectedVersion(e.target.value)}
-              className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-mono text-blue-600 dark:text-blue-400 font-bold"
+              className="w-full sm:w-auto px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-mono text-blue-600 dark:text-blue-400 font-bold"
             >
               {cert.syllabusVersions.map(v => (
                 <option key={v} value={v}>
@@ -138,7 +138,7 @@ export const SyllabusEngine: React.FC<SyllabusEngineProps> = ({ initialCertId, o
 
                       {/* Domains & Concept Tree */}
                       {paper.domains && paper.domains.length > 0 ? (
-                        <div className="space-y-3 pl-4 border-l-2 border-slate-200 dark:border-slate-800">
+                        <div className="space-y-3 pl-2.5 sm:pl-4 border-l-2 border-slate-200 dark:border-slate-800">
                           {paper.domains.map(dom => (
                             <div key={dom.id} className="space-y-2">
                               <h5 className="font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -146,7 +146,7 @@ export const SyllabusEngine: React.FC<SyllabusEngineProps> = ({ initialCertId, o
                                 <span>{dom.name}</span>
                               </h5>
 
-                              <div className="space-y-2 pl-4">
+                              <div className="space-y-2 pl-2 sm:pl-4">
                                 {dom.topics.map(tItem => (
                                   <div
                                     key={tItem.id}

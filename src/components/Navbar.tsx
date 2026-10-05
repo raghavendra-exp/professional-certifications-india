@@ -48,16 +48,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-indigo-600 to-amber-500 flex items-center justify-center shadow-md shadow-blue-500/20 text-white shrink-0 group-hover:scale-105 transition-transform">
                 <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-sm sm:text-base tracking-tight bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-300 bg-clip-text text-transparent">
-                    {isHindi ? 'व्यावसायिक प्रमाणपत्र भारत' : 'PROFESSIONAL EXAMS INDIA'}
+                  <span className="font-extrabold text-xs sm:text-base tracking-tight bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-300 bg-clip-text text-transparent truncate max-w-[130px] xs:max-w-[190px] sm:max-w-none">
+                    {isHindi ? 'व्यावसायिक परीक्षा भारत' : 'PROFESSIONAL EXAMS INDIA'}
                   </span>
                   <span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
                     MASTER
                   </span>
                 </div>
-                <span className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[210px] sm:max-w-md">
+                <span className="hidden sm:inline-block text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[210px] sm:max-w-md">
                   CA • CS • CMA • CFA • FRM • ACCA • CISA • Banking • Statutory
                 </span>
               </div>
