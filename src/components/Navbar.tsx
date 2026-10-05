@@ -112,16 +112,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>{language === 'en' ? 'हिंदी' : 'ENG'}</span>
             </button>
 
-            {/* Dark / Light / System Mode Toggle */}
+            {/* Dark / Light Mode Toggle */}
             <button
+              type="button"
               onClick={() => setTheme(isDark ? 'light' : 'dark')}
-              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              className="p-2 rounded-xl text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 cursor-pointer"
+              title={isDark ? (isHindi ? 'लाइट मोड में बदलें' : 'Switch to Light Mode') : (isHindi ? 'डार्क मोड में बदलें' : 'Switch to Dark Mode')}
+              aria-label="Toggle theme"
             >
               {isDark ? (
                 <Sun className="w-4 h-4 text-amber-400" />
               ) : (
-                <Moon className="w-4 h-4 text-slate-700" />
+                <Moon className="w-4 h-4 text-slate-700 dark:text-slate-300" />
               )}
             </button>
 

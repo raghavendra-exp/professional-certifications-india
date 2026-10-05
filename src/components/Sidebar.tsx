@@ -19,9 +19,12 @@ import {
   Layers, 
   Compass, 
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 import { certificationsData } from '../data/certifications';
 
 interface SidebarProps {
@@ -40,6 +43,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onClose 
 }) => {
   const { isHindi } = useLanguage();
+  const { isDark, setTheme } = useTheme();
   const [certsExpanded, setCertsExpanded] = React.useState(true);
 
   const mainNavItems = [
@@ -170,14 +174,31 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Sidebar Footer Info */}
-        <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-[11px] text-slate-500 dark:text-slate-400 space-y-2.5">
           <div className="flex items-center justify-between">
             <span className="font-semibold text-slate-700 dark:text-slate-300">PWA & Offline Ready</span>
             <span className="px-1.5 py-0.5 rounded text-[9px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">
               v2026.1
             </span>
           </div>
-          <p className="text-[10px] text-slate-400 mt-1">
+
+          {/* Theme Quick Switcher in Sidebar */}
+          <button
+            type="button"
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/80 transition-colors text-xs font-medium cursor-pointer"
+            aria-label="Toggle dark/light theme"
+          >
+            <span className="flex items-center gap-1.5">
+              {isDark ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />}
+              <span>{isDark ? (isHindi ? 'डार्क मोड' : 'Dark Mode') : (isHindi ? 'लाइट मोड' : 'Light Mode')}</span>
+            </span>
+            <span className="text-[10px] text-blue-600 dark:text-blue-400 font-bold">
+              {isDark ? (isHindi ? 'लाइट में बदलें' : 'Switch to Light') : (isHindi ? 'डार्क में बदलें' : 'Switch to Dark')}
+            </span>
+          </button>
+
+          <p className="text-[10px] text-slate-400">
             {isHindi ? 'कॉपीराइट-सुरक्षित आधिकारिक अध्ययन सामग्री' : 'Copyright-Safe Official Resources'}
           </p>
         </div>
